@@ -1,7 +1,10 @@
 import React from 'react';
-import generateGradient from './generate-gradient'
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import generateGradient from './generate-gradient';
 
 class App extends React.Component {
+
+  targetElement = null;
 
   constructor(props) {
     super(props);
@@ -10,7 +13,16 @@ class App extends React.Component {
       colors: generateGradient('f3f0d1', 'e29c68', 10),
       color: 'f3f0d1'
     }
-    this.changeColor = this.changeColor.bind(this)
+    this.changeColor = this.changeColor.bind(this);
+  }
+
+  componentDidMount() {
+    this.targetElement = document.querySelector('#root');
+    disableBodyScroll(this.targetElement);
+  }
+
+  componentWillUnmount() {
+    clearAllBodyScrollLocks();
   }
 
   changeColor(event) {
