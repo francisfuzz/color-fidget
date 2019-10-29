@@ -1,4 +1,5 @@
 import React from 'react';
+import generateGradient from './generate-gradient'
 
 class App extends React.Component {
 
@@ -6,12 +7,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       // https://colorhunt.co/palette/132892
-      colors: [
-        'f3f0d1',
-        'e29c68',
-        'c85108',
-        'a20e0e'
-      ],
+      colors: generateGradient('f3f0d1', 'e29c68', 10),
       color: 'f3f0d1'
     }
     this.changeColor = this.changeColor.bind(this)
