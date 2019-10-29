@@ -37,8 +37,8 @@ class App extends React.Component {
         onClick={this.changeColor}
         onTouchEnd={this.changeColor}
         style={{
-        'minWidth': '90vw',
-        'minHeight': '90vh',
+        'minWidth': '100vw',
+        'minHeight': '100vh',
         'backgroundColor': `#${this.state.color}`
       }}>
       </div>
