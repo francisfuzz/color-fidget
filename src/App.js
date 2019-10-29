@@ -1,28 +1,28 @@
-import React from 'react';
-import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-import generateGradient from './generate-gradient';
+import React from 'react'
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+import generateGradient from './generate-gradient'
 
 class App extends React.Component {
 
-  targetElement = null;
+  targetElement = null
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       // https://colorhunt.co/palette/132892
       colors: generateGradient('f3f0d1', 'e29c68', 10),
       color: 'f3f0d1'
     }
-    this.changeColor = this.changeColor.bind(this);
+    this.changeColor = this.changeColor.bind(this)
   }
 
   componentDidMount() {
-    this.targetElement = document.querySelector('#root');
-    disableBodyScroll(this.targetElement);
+    this.targetElement = document.querySelector('#root')
+    disableBodyScroll(this.targetElement)
   }
 
   componentWillUnmount() {
-    clearAllBodyScrollLocks();
+    clearAllBodyScrollLocks()
   }
 
   changeColor(event) {
@@ -50,8 +50,8 @@ class App extends React.Component {
         'backgroundColor': `#${this.state.color}`
       }}>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
