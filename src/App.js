@@ -17,7 +17,10 @@ class App extends React.Component {
     this.changeColor = this.changeColor.bind(this)
   }
 
-  changeColor() {
+  changeColor(event) {
+    event.preventDefault()
+    event.stopPropagation()
+
     const newColors = this.state.colors.slice()
     const nextColor = newColors.pop()
     newColors.unshift(nextColor)
@@ -32,6 +35,7 @@ class App extends React.Component {
     return (
       <div
         onClick={this.changeColor}
+        onTouchEnd={this.changeColor}
         style={{
         'minWidth': '90vw',
         'minHeight': '90vh',
