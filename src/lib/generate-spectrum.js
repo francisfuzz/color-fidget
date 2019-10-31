@@ -9,7 +9,7 @@ function generateSpectrum (colors, step) {
   }
 
   // Concatenate a copy of the spectrum in reverse order
-  spectrum = spectrum.concat(spectrum.splice().reverse())
+  spectrum = spectrum.concat(spectrum.slice().reverse())
 
   return spectrum
 }
