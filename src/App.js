@@ -18,7 +18,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       colors: spectrum,
-      color: autumnalColors[0]
+      color: autumnalColors[1]
     }
     this.changeColor = this.changeColor.bind(this)
   }
