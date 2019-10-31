@@ -1,4 +1,5 @@
 import generateGradient from './generate-gradient'
+
 function generateSpectrum (colors, step) {
   let spectrum = []
   for (let i = 0; i < colors.length - 1; i++) {
