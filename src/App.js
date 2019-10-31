@@ -42,9 +42,6 @@ class App extends React.Component {
     const nextColor = newColors.pop()
     newColors.unshift(nextColor)
 
-    console.log(newColors)
-    console.log(nextColor) 
-
     this.setState({
       color: nextColor,
       colors: newColors
