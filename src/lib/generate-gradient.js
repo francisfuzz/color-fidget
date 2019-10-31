@@ -8,6 +8,7 @@ function calculateIncrements(initialColor, terminalColor, steps) {
   const ic = hexRgb(initialColor)
   const tc = hexRgb(terminalColor)
 
+  // Take the difference of two colors, then divide it by steps
   return {
     redStep: (tc.red - ic.red) / steps,  
     greenStep: (tc.green - ic.green) / steps,
@@ -19,17 +20,17 @@ function generateGradient(initialColor, terminalColor, steps) {
   const ic = hexRgb(initialColor)
   const increment = calculateIncrements(initialColor, terminalColor, steps)
 
-  let palette = []
+  let gradient = []
   for (let i = 0; i < steps + 1; i++) {
-    palette.push(
+    gradient.push(
       rgbHex(
         Math.round(((ic.red + (increment.redStep * i)))),
         Math.round(((ic.green + (increment.greenStep * i)))),
-        Math.round(((ic.blue + (increment.blueStep* i))))
+        Math.round(((ic.blue + (increment.blueStep * i))))
       )
     )
   }
-  return palette
+  return gradient
 }
 
 export default generateGradient
