@@ -7,6 +7,10 @@ function generateSpectrum (colors, step) {
       generateGradient(colors[i], colors[i+1], step)
     )
   }
+
+  // Concatenate a copy of the spectrum in reverse order
+  spectrum = spectrum.concat(spectrum.splice().reverse())
+
   return spectrum
 }
 
