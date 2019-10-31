@@ -10,7 +10,7 @@ const autumnalColors = [
   'f3f0d1'
 ]
 
-const spectrum = generateSpectrum(autumnalColors, 10)
+const spectrum = generateSpectrum(autumnalColors, 60)
 
 class App extends React.Component {
 
