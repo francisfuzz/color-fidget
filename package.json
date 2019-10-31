@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "body-scroll-lock": "^2.6.4",
+    "hex-rgb": "^4.1.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "rgb-hex": "^3.0.0"
   },
   "scripts": {
     "start": "HOST=0.0.0.0 react-scripts start",
