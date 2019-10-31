@@ -52,6 +52,8 @@ class App extends React.Component {
     return (
       <div
         onClick={this.changeColor}
+        onTouchStart={this.changeColor}
+        onTouchMove={this.changeColor}
         onTouchEnd={this.changeColor}
         style={{
         'minWidth': '100vw',
