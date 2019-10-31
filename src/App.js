@@ -1,14 +1,16 @@
 import React from 'react'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
-import generateGradient from './generate-gradient'
+import generateSpectrum from './lib/generate-spectrum'
 
 // https://colorhunt.co/palette/132892
 const autumnalColors = [
-  'f3f0d1',
-  'e29c68'
+  'a20e0e',
+  'c85108',
+  'e29c68',
+  'f3f0d1'
 ]
 
-const spectrum = generateGradient(autumnalColors[0], autumnalColors[1], 20)
+const spectrum = generateSpectrum(autumnalColors, 10)
 
 class App extends React.Component {
 
@@ -39,6 +41,9 @@ class App extends React.Component {
     const newColors = this.state.colors.slice()
     const nextColor = newColors.pop()
     newColors.unshift(nextColor)
+
+    console.log(newColors)
+    console.log(nextColor) 
 
     this.setState({
       color: nextColor,
