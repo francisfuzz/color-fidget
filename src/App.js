@@ -20,7 +20,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       colors: spectrum,
-      color: autumnalColors[3]
+      color: autumnalColors[0]
     }
     this.changeColor = this.changeColor.bind(this)
   }
@@ -39,8 +39,8 @@ class App extends React.Component {
     event.stopPropagation()
 
     const newColors = this.state.colors.slice()
-    const nextColor = newColors.pop()
-    newColors.unshift(nextColor)
+    const nextColor = newColors.shift()
+    newColors.push(nextColor)
 
     this.setState({
       color: nextColor,
@@ -54,6 +54,7 @@ class App extends React.Component {
         onClick={this.changeColor}
         onTouchStart={this.changeColor}
         onTouchMove={this.changeColor}
+        onMouseMove={this.changeColor}
         onTouchEnd={this.changeColor}
         style={{
         'minWidth': '100vw',
