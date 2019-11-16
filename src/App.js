@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       // https://colorhunt.co/palette/132892
-      colors: generateGradient('f3f0d1', 'e29c68', 10),
+      colors: generateGradient('f3f0d1', 'e29c68', 50),
       color: 'f3f0d1'
     }
     this.changeColor = this.changeColor.bind(this)
