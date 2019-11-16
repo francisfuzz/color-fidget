@@ -30,8 +30,8 @@ class App extends React.Component {
     event.stopPropagation()
 
     const newColors = this.state.colors.slice()
-    const nextColor = newColors.pop()
-    newColors.unshift(nextColor)
+    const nextColor = newColors.shift()
+    newColors.push(nextColor)
 
     this.setState({
       color: nextColor,
