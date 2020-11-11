@@ -3,7 +3,7 @@ import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import generateSpectrum from './lib/generate-spectrum'
 import colors from './lib/colors/seasonal-colors'
 
-const palette = colors.summer
+const palette = colors.winter
 
 const spectrum = generateSpectrum(palette, 60)
 
