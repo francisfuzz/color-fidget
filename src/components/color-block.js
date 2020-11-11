@@ -1,17 +1,17 @@
 import React from 'react'
 import generateSpectrum from '../lib/generate-spectrum'
 import colors from '../lib/colors/seasonal-colors'
-
-const palette = colors.winter
-const spectrum = generateSpectrum(palette, 60)
+const defaultPalette = Object.keys(colors)[0]
 
 class ColorBlock extends React.Component {
 
   constructor(props) {
     super(props)
+
     this.state = {
-      colors: spectrum
+      colors: this.safelyGenerateSpectrum(props.palette)
     }
+
     this.changeColor = this.changeColor.bind(this)
   }
 
@@ -27,6 +27,18 @@ class ColorBlock extends React.Component {
     this.setState({
       colors: newColors
     })
+  }
+
+  // This validates the selected palette by checking colors,
+  // setting to a valid default.
+  safelyGenerateSpectrum(palette) {
+    let spectrum
+    if (colors.hasOwnProperty(palette)) {
+      spectrum = generateSpectrum(colors[palette], 60)
+    } else {
+      spectrum = generateSpectrum(colors[defaultPalette], 60)
+    }
+    return spectrum
   }
 
   render() {
