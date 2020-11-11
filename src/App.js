@@ -14,8 +14,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      colors: spectrum,
-      color: palette[0]
+      colors: spectrum
     }
     this.changeColor = this.changeColor.bind(this)
   }
@@ -33,12 +32,12 @@ class App extends React.Component {
     event.preventDefault()
     event.stopPropagation()
 
+    // Make a copy of the spectrum.
     const newColors = this.state.colors.slice()
-    const nextColor = newColors.shift()
-    newColors.push(nextColor)
+    // Move the first element of spectrum to the last.
+    newColors.push(newColors.shift())
 
     this.setState({
-      color: nextColor,
       colors: newColors
     })
   }
@@ -54,7 +53,7 @@ class App extends React.Component {
         style={{
         'minWidth': '100vw',
         'minHeight': '100vh',
-        'backgroundColor': `#${this.state.color}`
+        'backgroundColor': `#${this.state.colors[0]}`
       }}>
       </div>
     )
