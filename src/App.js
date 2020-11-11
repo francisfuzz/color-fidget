@@ -1,16 +1,11 @@
 import React from 'react'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import generateSpectrum from './lib/generate-spectrum'
+import colors from './lib/colors'
 
-// https://colorhunt.co/palette/132892
-const autumnalColors = [
-  'a20e0e',
-  'c85108',
-  'e29c68',
-  'f3f0d1'
-]
+const palette = colors.summer
 
-const spectrum = generateSpectrum(autumnalColors, 60)
+const spectrum = generateSpectrum(palette, 60)
 
 class App extends React.Component {
 
@@ -20,7 +15,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       colors: spectrum,
-      color: autumnalColors[0]
+      color: palette[0]
     }
     this.changeColor = this.changeColor.bind(this)
   }
