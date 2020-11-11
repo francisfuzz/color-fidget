@@ -16,7 +16,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <ColorBlock />
+      <div>
+        <ColorBlock />
+      </div>
     )
   }
 }
