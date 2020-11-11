@@ -1,7 +1,7 @@
 import React from 'react'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import generateSpectrum from './lib/generate-spectrum'
-import colors from './lib/colors'
+import colors from './lib/colors/seasonal-colors'
 
 const palette = colors.summer
 
