@@ -17,11 +17,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ColorBlock width="100vw" height="20vh"/>
-        <ColorBlock palette="autumn" width="100vw" height="20vh"/>
-        <ColorBlock palette="summer" width="100vw" height="20vh"/>
-        <ColorBlock palette="winter" width="100vw" height="20vh"/>
-        <ColorBlock palette="autumn" width="100vw" height="20vh"/>
+        <ColorBlock width="100vw" height="25vh"/>
+        <ColorBlock palette="autumn" width="100vw" height="25vh"/>
+        <ColorBlock palette="summer" width="100vw" height="25vh"/>
+        <ColorBlock palette="winter" width="100vw" height="25vh"/>
       </div>
     )
   }
