@@ -38,13 +38,20 @@ class ColorBlock extends React.Component {
         onMouseMove={this.changeColor}
         onTouchEnd={this.changeColor}
         style={{
-        'minWidth': '100vw',
-        'minHeight': '100vh',
+        'width': `${this.props.width}`,
+        'height': `${this.props.height}`, 
         'backgroundColor': `#${this.state.colors[0]}`
       }}>
       </div>
     )
   }
+}
+
+// Default to a square proportional to the viewport.
+// https://www.w3.org/TR/css-values-4/#viewport-relative-lengths
+ColorBlock.defaultProps = {
+  width: '10vw',
+  height: '10vh'
 }
 
 export default ColorBlock
