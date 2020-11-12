@@ -30,4 +30,6 @@ const winter = [
     'f4f4f2'
 ]
 
-export default { spring, summer, autumn, winter }
+const seasonalColors = { spring, summer, autumn, winter }
+
+export default seasonalColors
