@@ -15,16 +15,9 @@ class App extends React.Component {
   }
 
   render() {
-    const blocks = []
-    let i = 0
-    do {
-      i += 1
-      blocks.push(<ColorBlock palette="autumn" width="100vw" height="10vh"/>)
-    } while (i < 10)
-
     return (
       <div>
-        {blocks}
+        <ColorBlock palette="autumn" width="100vw" height="100vh"/>
       </div>
     )
   }
