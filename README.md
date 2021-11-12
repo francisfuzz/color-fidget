@@ -2,6 +2,8 @@
 
 A relaxing application that lets you change the screen's color on hover or touch.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d26115e0-7183-4d84-a355-39b47bd4db7d/deploy-status)](https://app.netlify.com/sites/color-fidget/deploys)
+
 ## Demo
 
 * Go to https://color-fidget.now.sh/.
