@@ -1,26 +1,22 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import ColorBlock from './components/color-block'
 
-class App extends React.Component {
-  targetElement = null
+function App () {
+  const targetRef = useRef(null)
 
-  componentDidMount() {
-    this.targetElement = document.querySelector('#root')
-    disableBodyScroll(this.targetElement)
-  }
+  useEffect(() => {
+    disableBodyScroll(targetRef.current)
+    return () => {
+      clearAllBodyScrollLocks()
+    }
+  })
 
-  componentWillUnmount() {
-    clearAllBodyScrollLocks()
-  }
-
-  render() {
-    return (
-      <div>
-        <ColorBlock palette="autumn" width="100vw" height="100vh"/>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <ColorBlock ref={targetRef} palette="autumn" width="100vw" height="100vh"/>
+    </div>
+  )
 }
 
 export default App
