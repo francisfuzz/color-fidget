@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "body-scroll-lock": "^2.7.1",
     "hex-rgb": "^4.3.0",
     "lodash.shuffle": "^4.2.0",
     "react": "^16.14.0",

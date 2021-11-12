@@ -1,20 +1,10 @@
-import React, { useEffect, useRef } from 'react'
-import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+import React from 'react'
 import ColorBlock from './components/color-block'
 
 function App () {
-  const targetRef = useRef(null)
-
-  useEffect(() => {
-    disableBodyScroll(targetRef.current)
-    return () => {
-      clearAllBodyScrollLocks()
-    }
-  })
-
   return (
-    <div>
-      <ColorBlock ref={targetRef} palette="autumn" width="100vw" height="100vh"/>
+    <div className="app">
+      <ColorBlock palette="autumn" />
     </div>
   )
 }

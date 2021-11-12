@@ -1,69 +1,53 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import generateSpectrum from '../lib/generate-spectrum'
-import colors from '../lib/colors/seasonal-colors'
-const defaultPalette = Object.keys(colors)[0]
+import seasonalColors from '../lib/colors/seasonal-colors'
+const defaultPalette = Object.keys(seasonalColors)[0]
 
-class ColorBlock extends React.Component {
+function ColorBlock ({
+  palette = defaultPalette,
+  width = '100vw',
+  height = '100vh',
+  ...props
+}) {
+  const spectrum = generateSpectrum(seasonalColors[palette], 60)
+  const [state, setState] = useState({
+    color: spectrum[0],
+    step: 0
+  })
 
-  constructor(props) {
-    super(props)
+  function changeColor () {
+    const next
+      = (state.step === spectrum.length - 1)
+        ? 0
+        : state.step + 1
 
-    this.state = {
-      colors: this.safelyGenerateSpectrum(props.palette)
-    }
-
-    this.changeColor = this.changeColor.bind(this)
-  }
-
-  changeColor(event) {
-    event.preventDefault()
-    event.stopPropagation()
-
-    // Make a copy of the spectrum.
-    const newColors = this.state.colors.slice()
-    // Move the first element of spectrum to the last.
-    newColors.push(newColors.shift())
-
-    this.setState({
-      colors: newColors
+    setState({
+      color: spectrum[next],
+      step: next
     })
   }
 
-  // This validates the selected palette by checking colors,
-  // setting to a valid default.
-  safelyGenerateSpectrum(palette) {
-    let spectrum
-    if (colors.hasOwnProperty(palette)) {
-      spectrum = generateSpectrum(colors[palette], 60)
-    } else {
-      spectrum = generateSpectrum(colors[defaultPalette], 60)
-    }
-    return spectrum
-  }
+  useEffect(() => {
+    const interval = setInterval(changeColor, 32)
+    return () => clearInterval(interval)
+  })
 
-  render() {
-    return (
-      <div
-        onClick={this.changeColor}
-        onTouchStart={this.changeColor}
-        onTouchMove={this.changeColor}
-        onMouseMove={this.changeColor}
-        onTouchEnd={this.changeColor}
-        style={{
-        'width': `${this.props.width}`,
-        'height': `${this.props.height}`, 
-        'backgroundColor': `#${this.state.colors[0]}`
-      }}>
-      </div>
-    )
-  }
-}
-
-// Default to a square proportional to the viewport.
-// https://www.w3.org/TR/css-values-4/#viewport-relative-lengths
-ColorBlock.defaultProps = {
-  width: '10vw',
-  height: '10vh'
+  return (
+    <div
+      {...props}
+      onClick={changeColor}
+      onTouchStart={changeColor}
+      onTouchMove={changeColor}
+      onMouseMove={changeColor}
+      onTouchEnd={changeColor}
+      className='color-block'
+      style={{
+      'width': `${width}`,
+      'height': `${height}`,
+      'backgroundColor': `#${state.color}`
+    }}>
+    </div>
+  )
 }
 
 export default ColorBlock
