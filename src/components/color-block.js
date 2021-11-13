@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import generateSpectrum from '../lib/generate-spectrum'
 import seasonalColors from '../lib/colors/seasonal-colors'
+
 const defaultPalette = Object.keys(seasonalColors)[0]
 
 function ColorBlock ({
